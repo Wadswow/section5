@@ -1,40 +1,11 @@
-# Section 5 – Refactoring Code Smells in Practice
+Speculative Generality
 
-This activity is designed to help you practice identifying code smells and applying refactoring patterns to a real codebase in CMPM 121, Game Development Patterns.
+I simply removed some Speculative Generality that I noticed at the beginning when they placed "const a = "increment", b = "counter", h = "CMPM 121 Project";" into the code. It really doesn't do anything as those names are used once or twice and allude to being used a lot but overall just don't. I felt the best smell to describe this was Speculative Generality.
 
-## Assignment Instructions
+Duplicated Code
 
-For this assignment, your task is to **analyze and improve the code in `src/main.ts`**:
+There was a lot of duplication in the code for the counter incrementation inside of the button event handlers. So I extracted them into their own function and then called that function in each instance that the code was called in the original code.
 
-1. **Identify code smells**: Review the code and look for patterns that may cause maintenance issues, reduce readability, or introduce potential bugs.
-2. **Refactor**: Apply **refactoring patterns** as described in Fowler’s _Refactoring_ book to improve the code.
-3. **Document your work**: Once you have completed your refactoring:
-   - Rewrite this README.md
-   - List the **code smells** you identified
-   - Describe the **refactoring patterns** you applied and how they improved the code
+Mysterious Name
 
-## Getting Started
-
-With Codespaces (or another environment supporting devcontainers):
-
-1. Run `deno task dev` to start the development server
-
-Without Codespaces (local VS Code):
-
-1. Install the [Deno](https://docs.deno.com/runtime/getting_started/installation/) runtime.
-2. Install the Deno VS Code extension (must be done only after installing Deno runtime).
-3. Run `./setup-hooks.sh` to enable pre-commit quality checks
-4. Run `deno task dev` to start the development server
-
-The setup script configures Git hooks to automatically run formatting, linting, and type checking before commits.
-
-## Deployment
-
-This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
-
-### Setup GitHub Pages Deployment
-
-1. Go to your repository's Settings → Pages
-2. Under "Source", select "GitHub Actions"
-3. The workflow will automatically deploy on pushes to the `main` branch
-4. Your site will be published at `https://<your-github-username>.github.io/<repository-name>/`
+The names in the code are just one to two letter names which are hard to deciper and also hard to find where they are used just from a simple search. So I changed the names to have more relavance and reflect what is represents in the code.
